@@ -5,11 +5,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application','home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+<header>
+    <h1><%= link_to image_tag('jimo_icon.png', class: 'logo'), "/" %></h1>
+</header>
     <%= yield %>
+    <footer>
+    <%= image_tag 'copyright.png', class: 'copyright' %>
+    </footer>
   </body>
 </html>
