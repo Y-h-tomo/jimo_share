@@ -1,26 +1,31 @@
 <div class="top_wrapper">
-  <div class="container">
-  <%= image_tag 'jimo_icon.png', class: 'top_title' %>
-    <div class="serch_btn">
-    
-    </div>
+  <div class="title_container">
+    <%= image_tag 'jimo_icon.png', class: 'top_title' %>
+  </div>
+  <div class="btn_container">
+      <button type="button" class="btn btn-info">分類で見る</button>
+      <button type="button" class="btn btn-info">期限で見る</button>
+      <button type="button" class="btn btn-info">値段で見る</button>
+      <button type="button" class="btn btn-info">場所で見る</button>
   </div>
 </div>
 
-<div class="wrapper">
+<div class="info_wrapper">
   <div class ="info_message">
     <h1>「フードロスにも地産地消を」</h1>
     <p>Jimo-shareとは...</p>
-    <p>生産製造現場では形が悪い、通常販売に向かないものや、<br> 賞味期限が近いというだけで<br>
-        廃棄される食品や農産物が多くあります。<br>
-        一方で、食費のかかるペットや<br>こども食堂を利用しなければいけない家庭が存在します。<br>
-        Jimo-shareは、地元内で双方が繋がれるようにした<br>投稿型マッチングサービスです。<br>
+    <p class="text-justify">生産製造現場では形が悪い、通常販売に向かないものや、 賞味期限が近いというだけで廃棄される食品や農産物が多くあります。一方で、食費のかかるペットやこども食堂を利用しなければいけない家庭が存在します。Jimo-shareは、地元内で双方が繋がれるようにした投稿型マッチングサービスです。
     </p>
- </div>
-  <%= image_tag 'top_info.png' ,class: "top_info" ,alt: "info_image" %>
+  </div>
+  <div class="info_image">
+    <%= image_tag 'top_info.png' ,class: "top_info" ,alt: "info_image" %>
+  </div>
 </div>
-
 <main>
-
-
+ <section class="side_view">
+ </section>
+ <section class="posts_new">
+ </section>
+ <section class="posts_limit">
+ </section>
 </main>

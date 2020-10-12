@@ -2,35 +2,110 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// トップ画面ここから
 .top_wrapper{
+  display: grid;
+  grid-template-columns: auto 50% auto;
+  grid-template-rows: auto 30% 30% auto;
+  margin: 0;
   width: 100%;
   height: 700px;
   background-image: url("top.png");
   background-size: cover;
   background-position:center;
+  .title_container{
+    grid-column: 2;
+    grid-row: 2;
+  }
   .top_title{
-    width: 25%;
-    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+  .btn_container{
+    grid-column: 2;
+    grid-row: 3;
+    display: inline-block;
+    margin: auto;
+    .btn{
+      border-radius: 4px;
+      margin:5px;
+  }
   }
 }
 
-.wrapper{
-  display: flex;
-  justify-content: center;
+// トップ画面ここまで
+
+// インフォここから
+.info_wrapper{
+  background-image:url("info_cover.png");
+  background-size: cover;
+  background-position:center;
+  display: grid;
+  grid-template-columns: 3% 37%  57% 3%;
+  grid-template-rows:5% auto 5% ;
+  width: 100%;
+  height: 400px;
+
   .info_message{
-    padding-top: 30px;
+    grid-column: 2;
+    grid-row: 2;
     h1{
       font-size: 33px;
-      color: #ffff;
-
+      color: rgb(22, 190, 30);
     }
     p{
       font-size: 14px;
     }
   }
-  .top_info {
-    width: 657px;
-    height: 352px;
+  .info_image {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
 
+// インフォここまで
+
+// メインここから
+main {
+  width: 100%;
+  height: 1000px;
+}
+
+
+
+
+//タブレット向けレイアウト
+@media all and (max-width: 1000px) {
+
+}
+
+//モバイル向けレイアウト
+@media all and (max-width: 670px) {
+  .info_wrapper{
+    display: grid;
+    grid-template-columns: 3% auto 3%;
+    grid-template-rows:5% 45% 45%  5% ;
+    width: 100%;
+    height: 600px;
+
+    .info_message{
+      grid-column: 2;
+      grid-row: 3;
+      h1{
+        margin-top: 20px;
+        font-size: 33px;
+        color: rgb(22, 190, 30);
+      }
+      p{
+        font-size: 14px;
+      }
+    }
+    .info_image {
+      grid-column: 2;
+      grid-row: 2;
+      width: 80%;
+      height: 80%;
+    }
   }
 }
