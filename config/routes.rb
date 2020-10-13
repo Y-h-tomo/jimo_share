@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+  get "user/new" => "user#new"
   get "post/posts" => "post#posts"
   get "/"  => "home#top"
 
