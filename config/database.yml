@@ -24,5 +24,32 @@ production:
   <<: *default
   # database: db/production.sqlite3
   adapter: postgresql
+  database: db/production.postgresql
   encoding: unicode
   pool: 5
+
+
+#   test:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: aptnote_test
+#   pool: 5
+#   username: user
+#   password: password
+#   host: localhost
+
+# production:
+#   adapter: postgresql
+#   database: my_database_production
+#   pool: 5
+#   timeout: 5000
+
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: aptnote_development
+#   pool: 5
+#   username: user
+#   password: password
+  host: localhost
+  # socket: /tmp/mysql.sock
