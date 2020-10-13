@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <%# ヘッダーここから %>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-green">
   <a class="navbar-brand" href="#"><%= link_to image_tag('jimo_icon.png', class: 'logo'), "/" %></a>
@@ -37,7 +38,9 @@
   </div>
 </nav>
 </header>
+<%# ヘッダーここまで %>
     <%= yield %>
+<%# フッターここから %>
     <footer>
     <div class="footer_top">
     </div>
@@ -45,5 +48,6 @@
       <p class="copyright">©︎2020-    y_h_tomo</p>
     </div>
     </footer>
+<%# フッターここまで %>
   </body>
 </html>

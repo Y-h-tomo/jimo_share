@@ -46,7 +46,6 @@
   grid-template-rows:5% auto 5% ;
   width: 100%;
   height: 400px;
-
   .info_message{
     grid-column: 2;
     grid-row: 2;
@@ -63,14 +62,33 @@
     grid-row: 2;
   }
 }
-
 // インフォここまで
 
-// メインここから
-main {
+// コンテンツここから
+.contents {
   width: 100%;
   height: 1000px;
+  display: grid;
+  grid-template-columns:20% 80%;
+  grid-template-rows:50% 50%;
+  .side_view{
+    grid-column: 1;
+    grid-row:1 / 3;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .posts_new{
+    grid-column:2;
+    grid-row:1;
+    background-color: #ffff;
+  }
+  .posts_limit{
+    grid-column: 2;
+    grid-row: 2;
+    background-color:#ffff;
+  }
 }
+
+// コンテンツここまで
 
 
 
