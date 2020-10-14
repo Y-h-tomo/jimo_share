@@ -10,6 +10,7 @@
   margin: 0;
   width: 100%;
   height: 700px;
+  overflow: hidden;
   background-image: url("top.png");
   background-size: cover;
   background-position:center;
@@ -26,7 +27,8 @@
     grid-column: 2;
     grid-row: 3;
     display: inline-block;
-    margin: auto;
+    justify-self: center;
+    align-self: center;;
     .btn{
       border-radius: 4px;
       margin:5px;
@@ -41,14 +43,18 @@
   background-image:url("info_cover.png");
   background-size: cover;
   background-position:center;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: 3% 37%  57% 3%;
-  grid-template-rows:5% auto 5% ;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows:1fr;
   width: 100%;
   height: 400px;
   .info_message{
-    grid-column: 2;
-    grid-row: 2;
+    width: auto;
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    padding:10px  5px;
     h1{
       font-size: 33px;
       color: rgb(22, 190, 30);
@@ -58,8 +64,15 @@
     }
   }
   .info_image {
-    grid-column: 3;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    background:url("top_info.png") no-repeat center center;
+    background-size:100% auto;
+    overflow: hidden;
+    .top_info{
+    }
   }
 }
 // インフォここまで
@@ -69,8 +82,8 @@
   width: 100%;
   height: 1000px;
   display: grid;
-  grid-template-columns:20% 80%;
-  grid-template-rows:50% 50%;
+  grid-template-columns:1fr 4fr;
+  grid-template-rows:1fr 1fr;
   .side_view{
     grid-column: 1;
     grid-row:1 / 3;
@@ -100,16 +113,30 @@
 
 //モバイル向けレイアウト
 @media all and (max-width: 670px) {
+  .top_wrapper{
+    .title_container{
+      grid-column: 1/3;
+      grid-row: 2;
+      padding: 5px;
+    }
+    .btn_container{
+      grid-column: 1/3;
+      grid-row: 3;
+    }
+
+  }
+
   .info_wrapper{
     display: grid;
-    grid-template-columns: 3% auto 3%;
-    grid-template-rows:5% 45% 45%  5% ;
+    grid-template-columns: 1fr;
+    grid-template-rows:1fr 1fr ;
     width: 100%;
     height: 600px;
 
     .info_message{
-      grid-column: 2;
-      grid-row: 3;
+      grid-column: 1;
+      grid-row: 2;
+      padding: 5px;
       h1{
         margin-top: 20px;
         font-size: 33px;
@@ -119,11 +146,10 @@
         font-size: 14px;
       }
     }
+    // グリッド位置
     .info_image {
-      grid-column: 2;
-      grid-row: 2;
-      width: 80%;
-      height: 80%;
+      grid-column: 1;
+      grid-row: 1;
     }
   }
 }
