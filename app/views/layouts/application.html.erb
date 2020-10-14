@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <%= stylesheet_link_tag 'application','home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application','home','index', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,7 +25,7 @@
         <a class="nav-link" style="color: tomato" href="#">ログイン <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">投稿一覧</a>
+        <a class="nav-link" href="/post/index">投稿一覧</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">投稿履歴</a>
