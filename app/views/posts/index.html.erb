@@ -1,0 +1,28 @@
+<div class="contents">
+  <div class="side_view">
+  </div>
+  <%# 新規投稿一覧ここから %>
+  <div class="posts_new">
+     <div class="row">
+      <div class="col-sm">
+      <div class="card">
+        <% @posts.each do |post| %>
+       <img src="<%= "/post_images/#{post.image}" %>" alt="投稿した画像" class="post_image">
+       <div class="card-body">
+       <span class="badge badge-pill badge-info"><%= post.category %></span>
+        <p class="card-text"><%= post.content %></p>
+        <p class="card-time">最終編集　<%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <%= link_to "/posts/#{post.id}" do %>
+          <button class="btn btn-primary">詳細へ</button>
+      </div>
+       <% end %>
+    <% end %>
+           </div>
+        </div>
+        </div>
+      </div>
+  </div>
+  <%# 新規投稿一覧ここまで %>
+  <div class="posts_limit">
+  </div>
+</div>

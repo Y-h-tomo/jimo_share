@@ -68,3 +68,12 @@ gem 'jquery-rails'
 group :production do
   gem 'pg', '1.1.4'
 end
+
+# 画像アップロード
+gem 'carrierwave'
+
+#画像のリサイズ
+gem 'mini_magick'
+
+# パスワード用
+gem 'bcrypt',         '3.1.13'

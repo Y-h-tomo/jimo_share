@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="post-new">
+    <h1 class="form-heading">投稿する</h1>
+        <%= form_tag("/posts/create", {multipart: true}) do %>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <input name="image" type="file" value="画像選択">
+                    <textarea name="content"><%= @post.content %></textarea>
+          <input type="submit" value="投稿">
+        </div>
+      </div>
+    <% end %>
+    <%= form_for @post do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit 'アップロードする'%>
+<% end %>
+
+  </div>
+</div>
+
+

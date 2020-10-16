@@ -1,0 +1,26 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// 新規登録画面ここから
+.container-fluid{
+  width: 100%;
+  height: 1000px;
+  padding-top: 120px;
+  margin: 0;
+  background-image:url("back_image.png");
+  background-size: cover;
+  background-position:center;
+  overflow: hidden;
+ .user-new{
+   width: 70%;
+   margin: 0 auto;
+   padding-bottom: 30px;
+
+  .form-group{
+    padding: 3%;
+  }
+ }
+
+}
