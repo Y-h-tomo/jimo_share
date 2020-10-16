@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
-      image_name: "/app/assets/images/user_image_sample.png",
+      image_name: "user_image_sample.png",
       password: params[:password]
     )
     if @user.save
@@ -60,8 +60,7 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email])
-    if @user
-      #  && @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")

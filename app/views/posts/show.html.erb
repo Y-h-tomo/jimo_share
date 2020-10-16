@@ -20,6 +20,14 @@
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
         </div>
 
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @post.image.url if @post.img?%>
+</p>
 
 <%# 投稿詳細ここまで %>
 </div>

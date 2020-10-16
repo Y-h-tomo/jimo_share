@@ -14,7 +14,7 @@ end
 
   def create
     @post = Post.new(
-      post_params,
+      # post_params,
       content: params[:content],
       category:params[:category],
       price:params[:price],
@@ -68,7 +68,8 @@ end
   private
   #ストロングパラメーター
   def post_params
-    params.require(:post).permit(:image,:category,:area,:content,:price,:limit)
+    params.require(:post).permit(:image)
+    # params.require(:post).permit(:image,:category,:area,:content,:price,:limit,:remove_image)
   end
 
 end

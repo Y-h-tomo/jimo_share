@@ -8,7 +8,8 @@
             <%= message %>
           </div>
         <% end %>
-
+</div>
+<div class="form-body">
         <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
           <p>ユーザー名</p>
           <input name="name" value="<%= @user.name %>">
