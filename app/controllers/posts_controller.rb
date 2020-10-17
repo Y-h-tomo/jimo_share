@@ -6,6 +6,7 @@ end
 
   def show
     @post = Post.find_by(id: params[:id])
+
   end
 
   def new
@@ -20,18 +21,17 @@ end
       price:params[:price],
       limit:params[:limit],
       area:params[:area],
-      # user_id: @current_user.id,
-      image:"default.png",
+      user_id: @current_user.id,
+      image:params[:image],
     )
-
-    if params[:image]
-      @post.image = "#{@post.id}.png"
+    @post.save
+    if  params[:image]
+      @post.image = "#{@post.id}.jpg"
       image = params[:image]
       File.binwrite("public/post_images/#{@post.image}", image.read)
     end
 
-    if
-    @post.save
+    if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
     else
@@ -40,6 +40,7 @@ end
   end
 
   def edit
+    @posts = Post.all
     @post = Post.find_by(id: params[:id])
   end
 
@@ -47,11 +48,15 @@ end
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
 
+    if params[:image]
+      @post.image = "#{@post.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/post_images/#{@post.image}", image.read)
+    end
 
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
-
     else
       render("posts/edit")
     end
@@ -68,8 +73,8 @@ end
   private
   #ストロングパラメーター
   def post_params
-    params.require(:post).permit(:image)
-    # params.require(:post).permit(:image,:category,:area,:content,:price,:limit,:remove_image)
+    # params.require(:post).permit(:image,:category,:area,:content,:price,:limit,)
+    params.permit(:image,:category,:area,:content,:price,:limit,user_id,)
   end
 
 end

@@ -70,7 +70,7 @@ group :production do
 end
 
 # 画像アップロード
-gem 'carrierwave'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 
 #画像のリサイズ
 gem 'mini_magick'

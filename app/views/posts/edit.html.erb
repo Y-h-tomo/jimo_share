@@ -1,23 +1,25 @@
-<div class="main post-edit">
+<div class="container-fluid">
+  <div class="main post-edit">
   <div class="container">
     <div class="form post-form">
+          <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
       <div class="form-body">
-        <% @user.errors.full_messages.each do |message| %>
+        <% @post.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
           </div>
         <% end %>
-
-        <%= form_tag("/posts/#{@user.id}/update", {multipart: true}) do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
-          <p>画像</p>
+        <div>
+           <p>画像</p>
           <input name="image" type="file">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
+    <textarea name="content"><%= @post.content %></textarea>
           <input type="submit" value="保存">
-        <% end %>
       </div>
+      <% end %>
+              <% @posts.each do |post| %>
+       <img src="<%= "/post_images/#{post.image}" %>" alt="投稿した画像" class="post_image">
+       <% end %>
     </div>
+</div>
   </div>
 </div>

@@ -3,7 +3,7 @@
 <div class="show_detail">
 <%# 画像 %>
   <div class="post_image">
-    <%# <img src="<%= "#{@post.image}" %>" class="img-fluid img-thumbnail" alt="Responsive image"> %>
+
   </div>
 <%# 分類/場所%>
 <div class="container">
@@ -16,18 +16,11 @@
 <%# 説明条件 %>
 
       <div class="post-menus">
-          <%# <%= link_to("編集", "/posts/#{@post.id}/edit") %> %>
+           <%= @post.content %>
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
         </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @post.image.url if @post.img?%>
-</p>
 
 <%# 投稿詳細ここまで %>
 </div>

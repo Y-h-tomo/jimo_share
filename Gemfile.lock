@@ -230,7 +230,7 @@ DEPENDENCIES
   bootstrap (~> 4.4.1)
   byebug
   capybara (>= 2.15)
-  carrierwave
+  carrierwave (>= 2.0.0.rc, < 3.0)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)

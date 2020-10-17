@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+# resources :posts;
+# resources :users;
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
   post "users/create" => "users#create"
