@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-# resources :posts;
+# resources :posts
 # resources :users;
+
+ post "comments/:post_id/create" => "comments#create"
+
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
   post "users/create" => "users#create"
@@ -13,15 +16,12 @@ Rails.application.routes.draw do
   get "users/:id/likes" => "users#likes"
 
   get "posts/index" => "posts#index"
-
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
-
-
 
   get "/"  => "home#top"
 

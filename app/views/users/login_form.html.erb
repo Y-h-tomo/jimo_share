@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="login-container">
+  <div class="user-container">
     <div class="form-heading">ログイン</div>
     <div class="form users-form">
       <div class="form-body">
@@ -17,6 +17,8 @@
           <input type="submit" value="ログイン">
         <% end %>
       </div>
+
     </div>
   </div>
+    <%= debug(params) if Rails.env.development? %>
 </div>

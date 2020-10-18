@@ -10,11 +10,33 @@
           <% end %>
             <div class="post_image">
           </div>
-
         <div>
              <%= form_tag("/posts/create", {multipart: true}) do %>
+  <div class="form-group">
+    <label  for="exampleFormControlSelect1">分類選択</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="category">
+      <option>収穫物</option>
+      <option>一般食品</option>
+      <option>冷凍冷蔵食品</option>
+      <option>手作り</option>
+      <option>その他</option>
+    </select>
+  </div>
+         <div class="form-group">
           <input name="image" type="file" value="画像選択">
+          </div>
+           <div class="form-group">
           <textarea name="content"><%= @post.content %></textarea>
+           </div>
+           <div class="input-group ">
+  <div class="input-group-prepend mb-4">
+    <span class="input-group-text">価格</span>
+  </div>
+  <input name="price" type="text" class="form-control" >
+    <div class="input-group-append">
+    <span class="input-group-text">円</span>
+  </div>
+</div>
           <input type="submit" value="投稿">
              <% end %>
         </div>
@@ -23,4 +45,8 @@
   </div>
 </div>
 
-
+      category:params[:category],
+      price:params[:price],
+      limit:params[:limit],
+      area:params[:area],
+      user_id: @current_user.id,

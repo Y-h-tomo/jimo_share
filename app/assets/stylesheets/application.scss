@@ -18,6 +18,33 @@ html {
   padding: 0px;
   border:0px;
 }
+.container-fluid{
+  width: 100%;
+  height: 1000px;
+  padding-top: 120px;
+  margin: 0;
+  background-image:url("back_image.png");
+  background-size: cover;
+  background-position:center;
+  overflow: hidden;
+}
+// デバッグ用ここから
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  background-color:aqua;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+// デバッグ用ここまで
+
 // 全体ここまで
 
 // 使用カラー変数ここから

@@ -3,27 +3,26 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-// 新規登録画面ここから
-.container-fluid{
-  width: 100%;
-  height: 1000px;
-  padding-top: 120px;
-  margin: 0;
-  background-image:url("back_image.png");
-  background-size: cover;
-  background-position:center;
-  overflow: hidden;
- .user-new{
+// ユーザー関連共通
+
+
+ .user-container{
    width: 70%;
    margin: 0 auto;
    padding-bottom: 30px;
+   background-color:azure;
 
   .form-group{
     padding: 3%;
   }
  }
 
-}
+// 新規登録画面ここから
+
+
+// ログインページここから
+
+
 // 投稿一覧ここから
 .user_sum{
   width: 20%;
@@ -32,5 +31,8 @@
 // ユーザー詳細ここから
 .user_image{
   width: 30%;
+  border: 1px solid black;
+  background-color:mediumaquamarine;
 }
+
 
