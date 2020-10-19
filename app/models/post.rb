@@ -2,6 +2,11 @@ class Post < ApplicationRecord
   validates :content, {presence: true, length: {maximum: 140}}
   validates :user_id, {presence: true}
   validates :image, {presence: true}
+  validates :price, {presence: true, numericality: true}
+  validates :area, {presence: true}
+  validates :limit, {presence: true}
+  validates :category, {presence: true}
+
 
 
   # mount_uploader :image, ImageUploader

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-# resources :posts
-# resources :users;
+
 
  post "comments/:post_id/create" => "comments#create"
 

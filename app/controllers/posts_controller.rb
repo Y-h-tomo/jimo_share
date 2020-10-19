@@ -3,19 +3,17 @@ class PostsController < ApplicationController
 def index
   @posts = Post.all
 end
-
-  def show
-    @post = Post.find_by(id: params[:id])
-
-  end
-
   def new
     @post = Post.new
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
   def create
     @post = Post.new(
-      # post_params,
+      # **post_params,
       content: params[:content],
       category:params[:category],
       price:params[:price],
@@ -24,6 +22,7 @@ end
       user_id: @current_user.id,
       image:params[:image],
     )
+    
     @post.save
     if  params[:image]
       @post.image = "#{@post.id}.jpg"
@@ -38,6 +37,8 @@ end
       render("posts/new")
     end
   end
+
+
 
   def edit
     @posts = Post.all
@@ -73,8 +74,8 @@ end
   private
   #ストロングパラメーター
   def post_params
-    # params.require(:post).permit(:image,:category,:area,:content,:price,:limit,)
-    params.permit(:image,:category,:area,:content,:price,:limit,user_id,)
+    # params.rquiree(:post).permit(:image,:category,:area,:content,:price,:limit,)
+    params.permit(:id, :image, :category, :area, :content, :price, :limit)
   end
 
 end

@@ -16,5 +16,8 @@ module JimoShare
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
+    
+        # デフォルトのロケールを日本（ja）に設定
+        config.i18n.default_locale = :ja
   end
 end

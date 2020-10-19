@@ -9,8 +9,10 @@
        <div class="card-body">
        <span class="badge badge-pill badge-info"><%= post.category %></span>
         <p class="card-text"><%= post.content %></p>
-        <p class="card-area"><%= post.area %></p>
-        <span class="badge badge-secondary">最終編集</span><p class="card-time"><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <span class="badge badge-success">場所</span><p class="card-area"><%= post.area %></p>
+         <span class="badge badge-warning">期限: <%= l post.limit, format: :short  %></span><br>
+         <span class="badge badge-danger">¥</span><p class="card-price"><%= post.price.to_i %></p>
+        <span class="badge badge-secondary">最終編集: <%= l  post.updated_at, format: :long %></span><br>
         <%= link_to "/posts/#{post.id}" do %>
           <button class="btn btn-primary btn-sm">詳細へ</button>
       <% end %>
@@ -22,4 +24,3 @@
       </div>
   </div>
   <%# 新規投稿一覧ここまで %>
-
