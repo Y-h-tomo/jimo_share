@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// 投稿全体ここから
+.badge{
+  margin: 3px;
+
+}
+
+
+
 // 投稿一覧ここから　post/index
 .contents {
   width: 100%;
@@ -9,10 +17,12 @@
   padding-top: 120px;
   overflow:auto;
 
+
   .side_view{
     background-color: rgba(0, 0, 0, 0.7);
   }
   .posts_new{
+    margin:0 1em;
 
 .card{
  min-width:15em;
@@ -20,34 +30,52 @@
  .card-time{
 font-size: 5px;
 }
-.btn{
-  font-size: 5px;
 }
 }
 }
-}
+
 .post_image{
   width: 100%;
   object-fit: cover;
+  margin: 2px;
 }
 
 // 投稿詳細ページここから
-.show_container{
-  width: 100%;
-  height: 2000px;
-  display: grid;
-  grid-template-columns:1fr 2fr 1fr;
-  grid-template-rows:2fr 3fr;
-  padding-top: 80px;
-  .show_detail{
-    grid-column: 1/4;
-    grid-row: 1;
+  .show-detail{
+    max-width: 700px;
+    padding: 10px;
   }
-}
+ .post_image{
+   padding: 5px;
+ }
+  .edit-destroy{
+    width:100%;
+    margin-top: 5px;
+    text-align: right;
+  }
+  .post-content1{
+    width: 100%;
+  }
+  .post-content2{
+    display: none;
+  }
+
 
 // 新規投稿フォームここから
 .post-new{
   background-color: azure;
+  padding: 2%;
+  max-width:500px;
+  margin: auto;
+}
+
+textarea{
+ font-size: 1em;
+ width: 100%;
+ height:100px ;
+}
+.price-form{
+  width: 50%;
 }
 
 
@@ -60,14 +88,15 @@ font-size: 5px;
   .contents {
     height: 4000px;
   }
-  .side_view{
+  .post-content1{
     display: none;
+  }
+  .post-content2{
+    display:block;
+  }
+
 }
-.posts_new{
-}
-.posts_limit{
-}
-}
+
 
 
 

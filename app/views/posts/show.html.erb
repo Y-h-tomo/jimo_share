@@ -1,33 +1,47 @@
-<div class="show_container">
+<div class="container-fluid">
 <%# 投稿詳細ここから %>
-<div class="show_detail">
-<%# 画像 %>
-  <div class="post_image">
-
+<div class="show-detail row bg-white">
+<%# 画像/編集時期%>
+  <div class="post-show-image col-8">
+    <img src="<%= "/post_images/#{@post.image}" %>" alt="投稿した画像" class="post_image">
+     <span class="badge badge-secondary">最終編集: <%= l @post.updated_at, format: :long %></span>
   </div>
-<%# 分類/場所%>
-<div class="container">
-
-</div>
-<%# 値段 %>
-
-
-
-<%# 説明条件 %>
-
-      <div class="post-menus">
-           <%= @post.content %>
-          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+<%# 分類/場所/期限/価格 %>
+<div class="show-info col-4">
+      <span class="badge badge-pill badge-info"><%= @post.category %></span><br>
+      <span class="badge badge-success">場所</span><br>
+      <%= @post.area %><br>
+      <span class="badge badge-warning">期限: <%= l @post.limit, format: :short  %></span><br>
+      <span class="badge badge-danger">¥</span>
+      <%= @post.price.to_i %><br>
+      <div class="edit-destroy">
+      <%= link_to "/posts/#{@post.id}/edit" do %>
+          <button class="btn btn-outline-info btn-sm">編集</button>
+      <% end %>
+      <%= link_to "/posts/#{@post.id}/destroy", method: :post do %>
+          <button class="btn btn-outline-danger btn-sm">削除</button>
+      <% end %>
+      </div>
+      <%# 説明条件 %>
+        <div class="post-content1">
+        <p class="text-left text-break"> <%= @post.content %> </p>
         </div>
-
-
+</div>
+      <div class="post-content2">
+        <p class="text-left text-break"> <%= @post.content %> </p>
+        </div>
+</div>
 <%# 投稿詳細ここまで %>
-</div>
+
 <div class="comment-container">
-      
-
 
 </div>
 
 </div>
+ <%= debug(params) if Rails.env.development? %>
+
+
+
+
+
+

@@ -8,13 +8,11 @@
               <%= message %>
             </div>
           <% end %>
-            <div class="post_image">
-          </div>
         <div class="new-post-form">
              <%= form_tag("/posts/create", {multipart: true}) do %>
   <div class="form-group">
     <label  for="exampleFormControlSelect1">分類選択</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="category">
+    <select class="form-control w-25" id="exampleFormControlSelect1" name="category">
       <option>収穫物</option>
       <option>一般食品</option>
       <option>冷凍冷蔵食品</option>
@@ -23,36 +21,32 @@
     </select>
   </div>
          <div class="form-group">
-          <input name="image" type="file" value="画像選択">
+          <label>対象品画像:</label>
+          <input class="btn btn-outline-primary" name="image" type="file">
           </div>
             <div class="form-group">
-            <input name="area"  type="text" value="場所入力" autocomplete="address-level2">
+            <label>引き渡し場所:</label>
+            <input class="border" name="area"  type="text" placeholder="引き渡し場所" autocomplete="address-level2">
+</div>
             <div class="form-group">
-          <input name="limit" type="date" value="日付選択">
+            <label>引き渡し期限日:</label>
+          <input class="border " name="limit" type="date">
           </div>
 
            <div class="form-group">
-          <textarea name="content"></textarea>
+          <textarea class="border" name="content" placeholder="個数や数量、条件などを記入してください"></textarea>
            </div>
            <div class="input-group ">
   <div class="input-group-prepend mb-4">
-    <span class="input-group-text">価格</span>
+    <span class="input-group-text">¥</span>
   </div>
-  <input name="price" type="text" class="form-control" >
-    <div class="input-group-append">
-    <span class="input-group-text">円</span>
+  <input name="price" type="text" class="form-control" placeholder="価格を記入してください">
   </div>
-</div>
-          <input type="submit" value="投稿">
+          <input class="btn btn-outline-success" type="submit" value="投稿">
              <% end %>
         </div>
       </div>
 </div>
   </div>
 </div>
-</div>
-      category:params[:category],
-      price:params[:price],
-      limit:params[:limit],
-      area:params[:area],
-      user_id: @current_user.id,
+
