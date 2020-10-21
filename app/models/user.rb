@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # validates :password, presence: true, length: { minimum: 6 }
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
-
+  has_many :comments, dependent: :destroy
   # mount_uploader :image, ImageUploader
 
   def posts

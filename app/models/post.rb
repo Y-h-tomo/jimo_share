@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   validates :area, {presence: true}
   validates :limit, {presence: true}
   validates :category, {presence: true}
-
+  has_many :comments, dependent: :destroy
 
 
   # mount_uploader :image, ImageUploader
@@ -14,6 +14,11 @@ class Post < ApplicationRecord
   def user
     return User.find_by(id: self.user_id)
   end
+
+  def comments
+    return Comment.where(post_id: self.id)
+  end
+
 
     # def generate_image
     #   self.image = loop do

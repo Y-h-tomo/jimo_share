@@ -15,12 +15,14 @@
       <span class="badge badge-danger">¥</span>
       <%= @post.price.to_i %><br>
       <div class="edit-destroy">
+        <% if @post.user_id == @current_user.id %>
       <%= link_to "/posts/#{@post.id}/edit" do %>
           <button class="btn btn-outline-info btn-sm">編集</button>
       <% end %>
       <%= link_to "/posts/#{@post.id}/destroy", method: :post do %>
           <button class="btn btn-outline-danger btn-sm">削除</button>
       <% end %>
+       <% end %>
       </div>
       <%# 説明条件 %>
         <div class="post-content1">
@@ -32,14 +34,33 @@
         </div>
 </div>
 <%# 投稿詳細ここまで %>
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+            <%= form_tag("/posts/#{@post.id}/comments/create") do %>
+   <div class="form-group">
+          <textarea class="border" name="comment" placeholder="個数や数量、条件などを記入してください">
+          </textarea>
+ <input class="btn btn-outline-success" type="submit" value="投稿">
+ </div>
+ <% end %>
+                  </div>
+<%# コメント一覧 %>
+        <div class="comment-index">
+           <% @comments.each do |com| %>
+        <div class="comment-area">
+           <%= User.find(com.user_id).name %>
+           <%= com.comment %>
+           <%= l com.updated_at, format: :long %>
 
-<div class="comment-container">
-
-</div>
-
-</div>
+          </div>
+          <% end %>
+        </div>
  <%= debug(params) if Rails.env.development? %>
-
+</div>
 
 
 

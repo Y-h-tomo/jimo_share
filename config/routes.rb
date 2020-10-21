@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  # resources :posts  do
+  #   resources :comments, only: [:create, :destroy]
+  # end
 
 
- post "comments/:post_id/create" => "comments#create"
+ get   "posts/:id/comment" => "posts#comment"
+ post "posts/:post_id/comments/create" => "comments#create"
+ post "posts/:post_id/comments/destroy" => "comments#destroy"
 
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"

@@ -9,7 +9,11 @@ end
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
+    @comments  = Comment.where(post_id: @post.id)
+    # @commenter =  User.where(id: @comments.user_id)
   end
+
 
   def create
     @post = Post.new(
@@ -22,7 +26,7 @@ end
       user_id: @current_user.id,
       image:params[:image],
     )
-    
+
     @post.save
     if  params[:image]
       @post.image = "#{@post.id}.jpg"
@@ -70,6 +74,13 @@ end
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
+
+# コメント機能
+ def comments
+  @post = Post.find_by(id: params[:id])
+  @comment = Comment.where(post_id: @post.id)
+ end
+
 
   private
   #ストロングパラメーター

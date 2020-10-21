@@ -1,22 +1,53 @@
 <div class="container-fluid">
-  <div class="main post-edit">
-  <div class="container">
-    <div class="form post-form">
-          <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
-      <div class="form-body">
-        <% @post.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
+  <div class="post-form">
+    <h1 class="form-heading">編集する</h1>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+        <div class="new-post-form">
+             <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
+  <div class="form-group">
+    <label  for="exampleFormControlSelect1">分類選択</label>
+    <select class="form-control w-25" id="exampleFormControlSelect1" name="category">
+      <option>収穫物</option>
+      <option>一般食品</option>
+      <option>冷凍冷蔵食品</option>
+      <option>手作り</option>
+      <option>その他</option>
+    </select>
+  </div>
+         <div class="form-group">
+          <label>対象品画像:</label>
+          <input class="btn btn-outline-primary" name="image" type="file">
           </div>
-        <% end %>
-        <div>
-           <p>画像</p>
-          <input name="image" type="file">
-    <textarea name="content"><%= @post.content %></textarea>
-          <input type="submit" value="保存">
+            <div class="form-group">
+            <label>引き渡し場所:</label>
+            <input class="border" name="area"  type="text" placeholder="<%= @post.area %>" autocomplete="address-level2">
+</div>
+            <div class="form-group">
+            <label>引き渡し期限日:</label>
+          <input class="border " name="limit" type="date" >
+          </div>
+
+           <div class="form-group">
+          <textarea class="border" name="content" placeholder="個数や数量、条件などを記入してください">
+          <%= @post.content %>
+          </textarea>
+           </div>
+           <div class="input-group ">
+  <div class="input-group-prepend mb-4">
+    <span class="input-group-text">¥</span>
+  </div>
+  <input name="price" type="text" class="form-control" placeholder=" <%= @post.price %>">
+  </div>
+          <input class="btn btn-outline-primary" type="submit" value="保存">
+             <% end %>
+        </div>
       </div>
-      <% end %>
-    </div>
 </div>
   </div>
 </div>
