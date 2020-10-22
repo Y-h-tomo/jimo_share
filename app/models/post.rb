@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   validates :area, {presence: true}
   validates :limit, {presence: true}
   validates :category, {presence: true}
+  belongs_to :user
   has_many :comments, dependent: :destroy
 
 

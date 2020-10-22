@@ -1,66 +1,75 @@
 <div class="container-fluid">
 <%# 投稿詳細ここから %>
-<div class="show-detail row bg-white">
-<%# 画像/編集時期%>
-  <div class="post-show-image col-8">
-    <img src="<%= "/post_images/#{@post.image}" %>" alt="投稿した画像" class="post_image">
-     <span class="badge badge-secondary">最終編集: <%= l @post.updated_at, format: :long %></span>
-  </div>
-<%# 分類/場所/期限/価格 %>
-<div class="show-info col-4">
-      <span class="badge badge-pill badge-info"><%= @post.category %></span><br>
-      <span class="badge badge-success">場所</span><br>
-      <%= @post.area %><br>
-      <span class="badge badge-warning">期限: <%= l @post.limit, format: :short  %></span><br>
-      <span class="badge badge-danger">¥</span>
-      <%= @post.price.to_i %><br>
-      <div class="edit-destroy">
-        <% if @post.user_id == @current_user.id %>
-      <%= link_to "/posts/#{@post.id}/edit" do %>
-          <button class="btn btn-outline-info btn-sm">編集</button>
-      <% end %>
-      <%= link_to "/posts/#{@post.id}/destroy", method: :post do %>
-          <button class="btn btn-outline-danger btn-sm">削除</button>
-      <% end %>
-       <% end %>
+  <div class="show-detail row bg-white">
+        <%# 画像/編集時期%>
+      <div class="post-show-image col-8">
+      <img src="<%= "/post_images/#{@post.image}" %>" alt="投稿した画像" class="post_image">
+      <span class="badge badge-secondary">最終編集: <%= l @post.updated_at, format: :long %></span>
       </div>
-      <%# 説明条件 %>
+      <%# 分類/場所/期限/価格 %>
+      <div class="show-info col-4">
+        <span class="badge badge-pill badge-info"><%= @post.category %></span><br>
+        <span class="badge badge-success">場所</span><br>
+        <%= @post.area %><br>
+        <span class="badge badge-warning">期限: <%= l @post.limit, format: :short  %></span><br>
+        <span class="badge badge-danger">¥</span>
+        <a class="text-danger"><%= @post.price.to_i %></a>
+        <div class="edit-destroy">
+          <% if @post.user_id == @current_user.id %>
+            <%= link_to "/posts/#{@post.id}/edit" do %>
+              <button class="btn btn-outline-info btn-sm">編集</button>
+            <% end %>
+            <%= link_to "/posts/#{@post.id}/destroy", method: :post do %>
+              <button class="btn btn-outline-danger btn-sm">削除</button>
+            <% end %>
+          <% end %>
+        </div>
+        <%# 説明条件 %>
         <div class="post-content1">
         <p class="text-left text-break"> <%= @post.content %> </p>
         </div>
-</div>
-      <div class="post-content2">
+      </div>
+        <div class="post-content2 col">
         <p class="text-left text-break"> <%= @post.content %> </p>
         </div>
-</div>
-<%# 投稿詳細ここまで %>
-        <div class="form-body">
-          <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
+        <%# 投稿詳細ここまで %>
+        <%# コメント入力ここから %>
+        <div class="w-100"></div>
+        <div class="comment-wrapper col">
+          <div class="form-body form-comment">
+              <%= form_tag("/posts/#{@post.id}/comments/create") do %>
+            <div class="input-group mb-3 com-form">
+              <div class="input-group-prepend">
+                <input class="btn btn-outline-success" type="submit" value="投稿" id="button-addon1">
+              </div>
+                <input type="text" class="form-control" name="comment" placeholder="コメント、希望条件、返信を入力してください">
             </div>
-          <% end %>
-            <%= form_tag("/posts/#{@post.id}/comments/create") do %>
-   <div class="form-group">
-          <textarea class="border" name="comment" placeholder="個数や数量、条件などを記入してください">
-          </textarea>
- <input class="btn btn-outline-success" type="submit" value="投稿">
- </div>
- <% end %>
-                  </div>
-<%# コメント一覧 %>
-        <div class="comment-index">
-           <% @comments.each do |com| %>
-        <div class="comment-area">
-           <%= User.find(com.user_id).name %>
-           <%= com.comment %>
-           <%= l com.updated_at, format: :long %>
-
+              <% end %>
           </div>
-          <% end %>
+              <%# コメント一覧 %>
+          <div class="comment-index">
+              <% @comments.each do |com| %>
+                <div class="comment-area">
+                      <span class="badge badge-secondary"><%= l com.updated_at, format: :long %></span>
+                      <% if @current_user.id == com.user_id %>
+                      <span class="badge badge-primary"><%= User.find(com.user_id).name %></span>
+                      <% else %>
+                      <span class="badge badge-light"><%= User.find(com.user_id).name %></span>
+                      <% end %>
+                      <%= com.comment %>
+                <% if @current_user.id == com.user_id %>
+                  <%= link_to"/posts/#{@post.id}/comments/#{com.id}/destroy", method: :post do %>
+                <span class="badge badge-pill badge-danger">削除</span>
+                   <% end %>
+                    <% end %>
+                </div>
+              <% end %>
+          </div>
         </div>
- <%= debug(params) if Rails.env.development? %>
+          <%= debug(params) if Rails.env.development? %>
+  <%# 全体閉じ %>
 </div>
+  </div>
 
 
 

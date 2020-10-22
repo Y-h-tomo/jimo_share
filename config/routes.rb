@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
  get   "posts/:id/comment" => "posts#comment"
  post "posts/:post_id/comments/create" => "comments#create"
- post "posts/:post_id/comments/destroy" => "comments#destroy"
+ post "posts/:post_id/comments/:id/destroy" => "comments#destroy"
 
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"

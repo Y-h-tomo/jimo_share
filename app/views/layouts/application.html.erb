@@ -40,14 +40,13 @@
       </li>
   <% else %>
       <li class="nav-item ">
-     <a class="nav-link"> <%= link_to("新規登録", "/signup") %></a>
+      <a class="nav-link"> <%= link_to("新規登録", "/signup") %></a>
       </li>
-       <li class="nav-item">
+      <li class="nav-item">
     <a class="nav-link">    <%= link_to("ログイン", "/login") %></a>
       </li>
   <% end %>
     </ul>
-
     <form class="form-inline my-2 my-lg-0 ">
       <input class="form-control mr-sm-2" type="search" placeholder="キーワード">
       <button class="btn btn-primary my-2 my-sm-0" type="submit">検索</button>
@@ -57,11 +56,11 @@
 </header>
 <%# ヘッダーここまで %>
 <%# フラッシュメッセージここから %>
-<div class="flash-message">
-      <% flash.each do |message_type, message| %>
-        <div class="alert-primary alert  alert-<%= message_type %>" role="alert"><%= message %></div>
-      <% end %>
-</div>
+  <div class="flash-message">
+        <% flash.each do |message_type, message| %>
+          <div class="alert-primary alert  alert-<%= message_type %>" role="alert"><%= message %></div>
+        <% end %>
+  </div>
 <%# フラッシュメッセージここまで %>
     <%= yield %>
 <%# フッターここから %>

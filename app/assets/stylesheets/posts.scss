@@ -3,106 +3,111 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // 投稿全体ここから
-.badge{
+.badge {
   margin: 3px;
-
 }
-
-
 
 // 投稿一覧ここから　post/index
 .contents {
   width: 100%;
   height: 2000px;
   padding-top: 120px;
-  overflow:auto;
+  overflow: auto;
 
-
-  .side_view{
+  .side_view {
     background-color: rgba(0, 0, 0, 0.7);
   }
-  .posts_new{
-    margin:0 1em;
+  .posts_new {
+    margin: 0 1em;
+    .card {
+      min-width: 15em;
+      max-width: 15em;
+      .card-time {
+        font-size: 5px;
+      }
+    }
+  }
+}
 
-.card{
- min-width:15em;
- max-width: 15em;
- .card-time{
-font-size: 5px;
-}
-}
-}
-}
-
-.post_image{
+.post_image {
   width: 100%;
   object-fit: cover;
   margin: 2px;
 }
 
 // 投稿詳細ページここから
-  .show-detail{
-    max-width: 700px;
-    padding: 10px;
-  }
- .post_image{
-   padding: 5px;
- }
-  .edit-destroy{
-    width:100%;
-    margin-top: 5px;
-    text-align: right;
-  }
-  .post-content1{
-    width: 100%;
-  }
-  .post-content2{
-    display: none;
-  }
-  .comment-index{
-    width: 100%;
-    height: 100%;
-    background-color:white;
-  }
+.show-detail {
+  max-width: 700px;
+  padding: 10px;
+  margin: auto;
+}
+.post_image {
+  padding: 5px;
+}
+.edit-destroy {
+  width: 100%;
+  margin-top: 5px;
+  text-align: right;
+}
+.post-content1 {
+  width: 100%;
+}
+.post-content2 {
+  display: none;
+}
+.comment-index {
+  width: 100%;
+  min-height: 500px;
+  background-color: white;
+  overflow:auto;
+}
+.comment-area{
+  margin: 2px;
+}
+
+.comment-index{
+  overflow: auto;
+}
+
+.com-form{
+  max-height:100px;
+}
 
 
 // 新規投稿/編集フォームここから
-.post-form{
+.new-container {
+  height: 1000px;
+}
+.post-form {
   background-color: azure;
   padding: 2%;
-  max-width:500px;
+  max-width: 500px;
   margin: auto;
 }
 
-textarea{
- font-size: 1em;
- width: 100%;
- height:120px ;
+.new-content {
+  font-size: 1em;
+  width: 100%;
+  height: 120px;
 }
-.price-form{
+.price-form {
   width: 50%;
 }
 
-
-
-
-
 //モバイル向けレイアウト
 @media all and (max-width: 670px) {
-
   .contents {
-    height: 4000px;
+    height: auto;
   }
-  .post-content1{
+  .post-content1 {
     display: none;
   }
-  .post-content2{
-    display:block;
+  .post-content2 {
+    display: block;
   }
-
+  .card{
+    .card-text{
+      display: none;
+    }
+  }
 }
-
-
-
-
-

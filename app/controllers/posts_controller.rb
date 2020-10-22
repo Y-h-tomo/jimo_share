@@ -11,7 +11,6 @@ end
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @comments  = Comment.where(post_id: @post.id)
-    # @commenter =  User.where(id: @comments.user_id)
   end
 
 
@@ -45,13 +44,17 @@ end
 
 
   def edit
-    @posts = Post.all
+    # @posts = Post.all
     @post = Post.find_by(id: params[:id])
   end
 
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
+    @post.category = params[:category]
+    @post.limit = params[:limit]
+    @post.area = params[:area]
+    @post.price = params[:price]
 
     if params[:image]
       @post.image = "#{@post.id}.jpg"
@@ -86,7 +89,7 @@ end
   #ストロングパラメーター
   def post_params
     # params.rquiree(:post).permit(:image,:category,:area,:content,:price,:limit,)
-    params.permit(:id, :image, :category, :area, :content, :price, :limit)
+    params.permit(:id, :image, :category, :area, :content, :price, :limit,:user_id)
   end
 
 end

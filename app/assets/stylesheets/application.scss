@@ -11,39 +11,36 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
+@import "bootstrap";
 //  全体ここから
 html {
   margin: 0px;
   padding: 0px;
-  border:0px;
+  border: 0px;
 }
 
-.container-fluid{
+.container-fluid {
   width: 100%;
-  height: 1000px;
+  min-height:1000px;
   padding-top: 140px;
   margin: 0;
-  background-image:url("back_image.png");
+  background-image: url("back_image.png");
   background-size: cover;
-  background-position:center;
-  overflow: hidden;
+  background-position: center;
+  overflow:auto;
 }
-
-
-
 
 // デバッグ用ここから
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 /* miscellaneous */
 .debug_dump {
   clear: both;
   float: left;
-  background-color:aqua;
+  background-color: aqua;
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
@@ -53,7 +50,7 @@ html {
 // 全体ここまで
 
 // 使用カラー変数ここから
-$jimo-color:rgba(130, 220, 36,0.7);
+$jimo-color: rgba(130, 220, 36, 0.7);
 
 // 使用カラー変数ここまで
 
@@ -62,48 +59,48 @@ $jimo-color:rgba(130, 220, 36,0.7);
 header {
   width: 100%;
   height: 80px;
-  background-color:$jimo-color ;
-  position:fixed;
+  background-color: $jimo-color;
+  position: fixed;
   z-index: 1000;
 }
-    .logo {
-    width: 180px;
-    height: 60px;
-    padding: 10px;
-    }
-    .nav-item{
-      padding: 10px;
-    &:hover{
-    background-color:$jimo-color;
-    }
+.logo {
+  width: 180px;
+  height: 60px;
+  padding: 10px;
+}
+.nav-item {
+  padding: 10px;
+  &:hover {
+    background-color: $jimo-color;
   }
+}
 
 // ヘッダーここまで
 
-.flash-message{
+.flash-message {
   width: 100%;
   height: 40px;
   position: fixed;
-  margin-top:80px;
+  margin-top: 80px;
   z-index: 900;
 }
-.alert{
+.alert {
   margin: auto;
   text-align: center;
-  }
+}
 
 // フッターここから
 footer {
-  width:100%;
-  height:133px;
-  float:clear;
+  width: 100%;
+  height: 133px;
+  float: clear;
   background-color: rgba(0, 0, 0, 0.7);
 
   .footer_top {
     width: 100%;
     height: 100px;
   }
-  .footer_bottom{
+  .footer_bottom {
     .copyright {
       text-align: center;
       font-size: small;
@@ -115,12 +112,8 @@ footer {
 
 // タブレット向けレイアウト
 @media all and (max-width: 1000px) {
-
-
 }
 
 // モバイル向けレイアウト
 @media all and (max-width: 670px) {
-
-
 }

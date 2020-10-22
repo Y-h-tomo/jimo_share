@@ -9,34 +9,32 @@
             </div>
           <% end %>
         <div class="new-post-form">
-             <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
-  <div class="form-group">
-    <label  for="exampleFormControlSelect1">分類選択</label>
-    <select class="form-control w-25" id="exampleFormControlSelect1" name="category">
-      <option>収穫物</option>
-      <option>一般食品</option>
-      <option>冷凍冷蔵食品</option>
-      <option>手作り</option>
-      <option>その他</option>
-    </select>
-  </div>
-         <div class="form-group">
+          <img src="<%= "/post_images/#{@post.image}" %>" alt="投稿した画像" class="post_image">
+              <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
+          <div class="form-group">
+            <label  for="exampleFormControlSelect1">分類選択</label>
+            <select class="form-control w-25" id="exampleFormControlSelect1" name="category">
+              <option>収穫物</option>
+              <option>一般食品</option>
+              <option>冷凍冷蔵食品</option>
+              <option>手作り</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-group">
           <label>対象品画像:</label>
-          <input class="btn btn-outline-primary" name="image" type="file">
+          <input  name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
           </div>
             <div class="form-group">
             <label>引き渡し場所:</label>
-            <input class="border" name="area"  type="text" placeholder="<%= @post.area %>" autocomplete="address-level2">
-</div>
+            <input class="border w-75" name="area"  type="text" placeholder="<%= @post.area %>" autocomplete="address-level2">
+          </div>
             <div class="form-group">
             <label>引き渡し期限日:</label>
           <input class="border " name="limit" type="date" >
           </div>
-
            <div class="form-group">
-          <textarea class="border" name="content" placeholder="個数や数量、条件などを記入してください">
-          <%= @post.content %>
-          </textarea>
+          <textarea class="border new-content" name="content" placeholder="個数や数量、条件などを記入してください"><%= @post.content %></textarea>
            </div>
            <div class="input-group ">
   <div class="input-group-prepend mb-4">

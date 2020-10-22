@@ -14,11 +14,15 @@
   background-image: url("top.png");
   background-size: cover;
   background-position:center;
+}
   .title_container{
+    width: 100%;
     grid-column: 2;
     grid-row: 2;
   }
   .top_title{
+    margin:0 auto;
+     justify-content: center;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 4px;
@@ -26,15 +30,14 @@
   .btn_container{
     grid-column: 2;
     grid-row: 3;
-    display: inline-block;
+    width: 100%;
     justify-self: center;
-    align-self: center;;
+    align-self: center;
     .btn{
       border-radius: 4px;
       margin:5px;
   }
   }
-}
 
 // トップ画面ここまで
 
