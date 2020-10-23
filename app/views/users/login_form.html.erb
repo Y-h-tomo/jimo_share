@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="user-container">
-    <div class="form-heading">ログイン</div>
+  <div class="user-form border border-info">
+    <h1 class="form-heading">ログイン</h1>
     <div class="form users-form">
       <div class="form-body">
         <% if @error_message %>
@@ -8,13 +8,13 @@
             <%= @error_message %>
           </div>
         <% end %>
-
         <%= form_tag("/login") do %>
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @email %>">
-          <p>パスワード</p>
-          <input type="password" name="password" value="<%= @password %>">
-          <input type="submit" value="ログイン">
+      <label for="exampleInputEmail1">Email</label>
+      <input type="email" name="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+      <small id="emailHelp" class="form-text text-muted"></small>
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control mb-3 w-50" id="exampleInputPassword1" placeholder="Password">
+          <input type="submit" class="btn btn-outline-dark" value="ログイン">
         <% end %>
       </div>
 

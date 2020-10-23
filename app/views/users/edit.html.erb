@@ -1,26 +1,30 @@
 <div class="container-fluid">
-  <div class="user-container">
-    <div class="form-heading">アカウント編集</div>
-    <div class="form users-form">
+  <div class="user-form  border border-info">
+    <h4 class="form-heading">アカウント編集</h4>
+    <div class="form">
       <div class="form-body">
         <% @user.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
           </div>
         <% end %>
-</div>
-<div class="form-body">
+　　　</div>
+        <div class="form-body">
+        <label for="exampleInputImage">ユーザーイメージ</label><br>
+            <img src="<%= "/user_images/#{@user.image_name}" %>" alt="ユーザー画像" class="w-50 mb-3">
         <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
-          <p>画像</p>
-          <input name="image" type="file">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
-          <input type="submit" value="保存">
+        <label for="exampleInputName">ニックネーム</label>
+      <input class="border mb-3" name="name" value="<%= @user.name %>"><br>
+      <label for="exampleInputEmail1">Email</label>
+      <input type="email" name="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @user.email %>">
+          <label>新規ユーザー画像:</label>
+          <input  name="image_name" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
+          <label for="exampleInputContent">自己紹介</label><br>
+          <textarea name="content" value="<%= @user.content %>" class="border w-100 mb-3"></textarea><br>
+         <input class="btn btn-outline-primary" type="submit" value="保存">
         <% end %>
+          </div>
       </div>
-    </div>
   </div>
    <%= debug(params) if Rails.env.development? %>
 </div>

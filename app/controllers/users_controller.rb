@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @post = Post.where(user_id: @user.id)
 
   end
 
@@ -40,10 +41,11 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.content = params[:content]
 
-    if params[:image]
+    if params[:image_name]
       @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
+      image = params[:image_name]
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
 

@@ -1,14 +1,39 @@
 <div class="container-fluid">
-  <div class="user-container">
-    <div class="user">
-      <img src="<%= "/user_images/#{@user.image_name}" %>" class="user_image">
+  <div class="user-show">
+    <div class="user-detail">
+      <img src="<%= "/user_images/#{@user.image_name}" %>" class="user_image" alt="ユーザー画像">
       <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
-      <% if @user.id == @current_user.id %>
+       <p><%= @user.content %></p>
+             <% if @user.id == @current_user.id %>
+                <p><%= @user.email %></p>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
     <% end %>
     </div>
+    <div class="user-posts row">
+      <% @post.each do |post| %>
+          <div class="user-post col">
+          <div class="user-post-left">
+         <img src="<%= "/post_images/#{post.image}" %>" alt="投稿した画像" class="user-post-image">
+          </div>
+           <div class="user-post-right">
+        <span class="badge badge-pill badge-info"><%= post.category %></span><br>
+        <span class="badge badge-success">場所</span><a class="card-area"><%= post.area %></a><br>
+         <span class="badge badge-warning">期限: <%= l post.limit, format: :short  %></span><br>
+         <span class="badge badge-danger">¥</span><a class="text-danger"><%= post.price.to_i %></a><br>
+        <span class="badge badge-secondary">最終編集: <%= l  post.updated_at, format: :long %></span><br>
+        <%= link_to "/posts/#{post.id}" do %>
+          <button class="btn btn-outline-primary btn-sm">詳細へ</button>
+           <% end %>
+          </div>
+        </div>
+          <% end %>
+     </div>
     </div>
+
      <%= debug(params) if Rails.env.development? %>
     </div>
+
+
+
+
 

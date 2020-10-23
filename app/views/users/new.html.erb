@@ -1,5 +1,6 @@
 <div class="container-fluid">
-<div class="user-container">
+<div class="user-form border border-info">
+ <h1 class="form-heading">新規登録フォーム</h1>
   <div class="form-group">
      <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -12,15 +13,14 @@
         </div>
          <div class="form-group">
           <%= form_tag("/users/create") do %>
-      <label for="exampleInputName">ニックネーム</label>
-      <input name="name" value="<%= @user.name %>">
-
-
+      <label for="exampleInputName">ニックネーム</label><br>
+      <input class="border mb-1" name="name" placeholder="ニックネーム">
+      <small id="nameHelp" class="form-text text-muted">ニックネームは投稿一覧やコメントに表示されます。</small>
       <label for="exampleInputEmail1">Email</label>
-      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<%= @user.email %>">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <input type="email" name="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+      <small id="emailHelp" class="form-text text-muted"></small>
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" <%= @user.password %> >
+      <input type="password" name="password" class="form-control mb-3" id="exampleInputPassword1" placeholder="Password">
         <button type="submit" class="btn btn-primary">新規登録</button>
       <% end %>
     </div>

@@ -47,7 +47,7 @@
               <% end %>
           </div>
               <%# コメント一覧 %>
-          <div class="comment-index">
+          <div class="comment-index border">
               <% @comments.each do |com| %>
                 <div class="comment-area">
                       <span class="badge badge-secondary"><%= l com.updated_at, format: :long %></span>
