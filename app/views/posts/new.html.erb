@@ -1,5 +1,5 @@
 <div class="container-fluid new-container">
-  <div class="post-form">
+  <div class="post-form border border-info">
     <h1 class="form-heading">投稿する</h1>
     <div class="form-body">
       <% @post.errors.full_messages.each do |message| %>
@@ -40,7 +40,7 @@
             </div>
             <input name="price" type="text" class="form-control" placeholder="価格を記入してください">
           </div>
-        <input class="btn btn-outline-success" type="submit" value="投稿">
+        <input class="btn btn-outline-info" type="submit" value="投稿">
         <% end %>
         </div>
     </div>

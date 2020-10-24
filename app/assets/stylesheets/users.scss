@@ -7,11 +7,12 @@
 
 
  .user-container{
-   width: 70%;
+   width: 100%;
    margin: 0 auto;
-   padding-bottom: 30px;
+   min-height:800px;
    background-color:azure;
-   padding-top: 120px;
+   padding:3%;
+   overflow: auto;
 
   .form-group{
     padding: 3%;
@@ -33,8 +34,22 @@
 
 
 // ユーザー一覧ここから
-.user_sum{
-  width: 20%;
+.user-index-area{
+  overflow: auto;
+
+.user-index-card{
+    min-width: 12em;
+    max-width: 12em;
+  button{
+    width: 100%;
+  }
+  .card-img-overlay{
+    padding-top: 50%;
+  }
+  p{
+    font-size: 1em;
+  }
+}
 }
 
 
@@ -46,23 +61,53 @@
   background-color: azure;
 }
 .user-post{
-  max-width:10em;
-  min-width:10em;
+  max-width:15em;
+  min-width:15em;
+  margin: 1em;
+  padding: 1em;
   background-color: azure;
 }
-
 .user-post-image{
-  max-width: 10em;
+  max-width:10em;
+  padding: 2%;
 }
 
-
-
 .user_image{
-  width: 30%;
-  border: 1px solid black;
+  width: 50%;
   background-color:rgb(5, 8, 7);
 }
 
 .user-detail{
+}
+
+
+
+
+// タブレット向けレイアウト
+@media all and (max-width: 1000px) {
+}
+.user-index-card{
+
+  .card-img-top{
+
+  }
+  .card-text {
+    // display: none;
+  }
+}
+
+// モバイル向けレイアウト
+@media all and (max-width: 670px) {
+
+// ユーザー一覧ここから
+.user-index-card{
+
+  .card-img-top{
+
+  }
+  .card-text {
+    display: none;
+  }
+}
 }
 

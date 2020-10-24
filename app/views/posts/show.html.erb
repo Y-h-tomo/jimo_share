@@ -17,7 +17,7 @@
         <div class="edit-destroy">
           <% if @post.user_id == @current_user.id %>
             <%= link_to "/posts/#{@post.id}/edit" do %>
-              <button class="btn btn-outline-info btn-sm">編集</button>
+              <button class="btn btn-outline-success btn-sm">編集</button>
             <% end %>
             <%= link_to "/posts/#{@post.id}/destroy", method: :post do %>
               <button class="btn btn-outline-danger btn-sm">削除</button>

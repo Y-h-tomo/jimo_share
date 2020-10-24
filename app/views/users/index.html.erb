@@ -1,15 +1,20 @@
 <div class="container-fluid">
-  <div class="user-container">
-    <h1 class="users-heading">ユーザー 一覧</h1>
-    <% @users.each do |user| %>
-      <div class="users-index-item">
-        <div class="user-left">
-          <img src="<%= "/user_images/#{user.image_name}" %>" class="user_sum">
+    <h4 class="p-3 mb-2 bg-success text-white">ユーザー　一覧</h4>
+  <div class="user-container border">
+    <div class="user-index-area row row-cols-2 justify-content-center">
+      <% @users.each do |user| %>
+        <div class="card col-sm user-index-card p-3">
+        <img class="bd-placeholder-img card-img-top"  src="<%= "/user_images/#{user.image_name}" %>" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+          <div class="card-img-overlay">
+                <%= link_to "/users/#{user.id}" do %>
+          <button class="btn btn-outline-success btn-sm bg-white text-success h-auto"><%= user.name %></button>
+           <% end %>
+          </div>
+          <div class="card-body">
+          <p class="card-text text-justify"><%= user.content %></p>
+          </div>
         </div>
-        <div class="user-right">
-          <%= link_to(user.name, "/users/#{user.id}") %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

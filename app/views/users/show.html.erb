@@ -1,17 +1,21 @@
 <div class="container-fluid">
   <div class="user-show">
-    <div class="user-detail">
-      <img src="<%= "/user_images/#{@user.image_name}" %>" class="user_image" alt="ユーザー画像">
-      <h2><%= @user.name %></h2>
+      <h4 class="p-3 mb-2 bg-dark text-white">ユーザーアカウント</h4>
+    <div class="user-detail m-3 p-3 border">
+      <img src="<%= "/user_images/#{@user.image_name}" %>" class="user_image bg-white m-3 border" alt="ユーザー画像">
+      <h2 class="mb-3"><%= @user.name %></h2>
        <p><%= @user.content %></p>
              <% if @user.id == @current_user.id %>
                 <p><%= @user.email %></p>
-        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+                <small id="emailHelp" class="form-text text-muted">＊アドレスは他人からは確認されません</small>
+        <%= link_to("アカウント編集", "/users/#{@user.id}/edit") %>
     <% end %>
     </div>
-    <div class="user-posts row">
+    <div class="user-posts">
+    <h4 class="p-3 mb-2 bg-info text-white">投稿履歴</h4>
+       <div class="user-post-area row justify-content-center">
       <% @post.each do |post| %>
-          <div class="user-post col">
+          <div class="user-post col-auto border">
           <div class="user-post-left">
          <img src="<%= "/post_images/#{post.image}" %>" alt="投稿した画像" class="user-post-image">
           </div>
@@ -27,6 +31,7 @@
           </div>
         </div>
           <% end %>
+       </div>
      </div>
     </div>
 
