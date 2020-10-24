@@ -1,5 +1,8 @@
 language: ruby
-rvm: <ruby-version>
+rvm:
+  - 2.6.5
+  - jruby
+  - truffleruby
 services: postgresql
 bundler_args: "--without development --deployment -j4"
 cache: bundler
@@ -8,4 +11,7 @@ before_script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
 script: bundle exec rake test
-
+deploy:
+  provider: heroku
+  api_key:
+    secure:
