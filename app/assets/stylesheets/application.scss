@@ -29,9 +29,7 @@ html {
   background-position: center;
   overflow:auto;
 }
-.alert {
-  opacity: 0.7;
-}
+
 
 // デバッグ用ここから
 @mixin box_sizing {
@@ -78,7 +76,7 @@ header {
   }
 }
 
-// ヘッダーここまで
+// フラッシュメッセージここから
 
 .flash-message {
   width: 100%;
@@ -88,8 +86,38 @@ header {
   z-index: 900;
 }
 .alert {
+  opacity: 0.8;
   margin: auto;
   text-align: center;
+}
+
+// アイコンメニューここから
+.new-icon{
+  top:35em;
+  right:8em;
+  position: fixed;
+  z-index: 900;
+  width: 10em;
+  height: 10em;
+  background:red;
+  font-weight: bold;
+}
+.new-logo{
+  width: 100%;
+}
+
+.beginer-icon{
+  top:35em;
+  right:8em;
+  position: fixed;
+  z-index: 900;
+  width: 10em;
+  height: 10em;
+  background-color:green;
+  font-weight: bold;
+}
+.beginer-logo{
+  width: 100%;
 }
 
 // フッターここから
@@ -119,4 +147,46 @@ footer {
 
 // モバイル向けレイアウト
 @media all and (max-width: 670px) {
+
+
+  .new-icon{
+    top:45em;
+    right:3em;
+    position: fixed;
+    z-index: 900;
+    width: 7em;
+    height: 7em;
+    background:red;
+    font-weight: bold;
+  }
+  .new-logo{
+    width: 100%;
+    padding-top: 20%;
+  }
+
+  .beginer-icon{
+    top:45em;
+    right:3em;
+    position: fixed;
+    z-index: 900;
+    width: 7em;
+    height: 7em;
+    background-color:green;
+    font-weight: bold;
+  }
+
+  .beginer-logo{
+    width: 100%;
+    padding-top: 35%;
+  }
+
+
+
+
+
+
+
+
 }
+
+
