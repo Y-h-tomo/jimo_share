@@ -9,6 +9,14 @@
       <button type="button" class="btn btn-info col-sm">値段で見る</button>
       <button type="button" class="btn btn-info col-sm">場所で見る</button>
   </div>
+    <% if @current_user == nil %>
+      <div class="guest-icon rounded-right">
+        <%= link_to "login/guest",{method: :post} do %>
+      <%= image_tag('guest-icon.png',class: 'guest-logo') %>
+      <p class="card-img-overlay text-white">ゲストログインして投稿を見てみる</p>
+      <% end %>
+      <% end %>
+      </div>
 </div>
 <%# トップ画面ここまで %>
 <%# インフォここから %>

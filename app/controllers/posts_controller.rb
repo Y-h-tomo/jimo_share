@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 
-def index
-  @posts = Post.all
-end
+  def index
+    @posts = Post.all
+
+  end
+
   def new
     @post = Post.new
   end
@@ -12,7 +14,6 @@ end
     @user = @post.user
     @comments  = Comment.where(post_id: @post.id)
   end
-
 
   def create
     @post = Post.new(
@@ -84,6 +85,17 @@ end
   @comment = Comment.where(post_id: @post.id)
  end
 
+# 検索機能
+
+def search
+  if params[:search].present?
+    @posts = Post.where('category LIKE ?', "%#{params[:search]}%")
+    redirect_to("/posts/search")
+  else
+    @post  = Post.none
+  end
+
+end
 
   private
   #ストロングパラメーター

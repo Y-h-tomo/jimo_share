@@ -15,8 +15,14 @@
         <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
         <label for="exampleInputName">ニックネーム</label>
       <input class="border mb-3" name="name" value="<%= @user.name %>"><br>
+                  <% if @guest_user %>
+      <label for="exampleInputEmail1">Email</label>
+      <small class="text-danger">＊ゲストユーザーはEmail変更が反映されません</small>
+      <input type="email"  name="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @user.email %>">
+                  <% else %>
       <label for="exampleInputEmail1">Email</label>
       <input type="email" name="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @user.email %>">
+         <% end %>
           <label>新規ユーザー画像:</label>
           <input  name="image_name" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
           <label for="exampleInputContent">自己紹介</label><br>

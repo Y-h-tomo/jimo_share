@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
   has_many :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
+
   # mount_uploader :image, ImageUploader
 
   def posts

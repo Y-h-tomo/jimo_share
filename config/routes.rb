@@ -14,11 +14,18 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
+
+  # ゲストログイン用
+    post "/login/guest" => "home#guest"
+
   post "login" => "users#login"
   post "logout" => "users#logout"
   get "login" => "users#login_form"
   get "users/:id/likes" => "users#likes"
 
+  # 検索
+
+  get "search" => "posts#search"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
@@ -26,6 +33,8 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
+
+
 
   get "/"  => "home#top"
 

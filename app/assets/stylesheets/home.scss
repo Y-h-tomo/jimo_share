@@ -38,6 +38,24 @@
       margin:5px;
   }
   }
+// ゲストログイン
+.guest-icon{
+    position: fixed;
+    top:7.5em;
+    left:0em;
+    width:17em;
+    height:6em;
+    background-color: blue;
+    font-size: 0.7em;
+    z-index: 900;
+.guest-logo{
+   height: 100%;
+  }
+  p{
+   margin-left:4em;
+   height: 100%;
+  }
+}
 
 // トップ画面ここまで
 
@@ -109,6 +127,23 @@
     }
 
   }
+// ゲストログイン(モバイル
+.guest-icon{
+  top:10em;
+  left:0em;
+  width:20em;
+  height:6em;
+  background-color: blue;
+  font-size: 0.5em;
+.guest-logo{
+ height: 100%;
+}
+p{
+ padding-top:1em;
+ margin-left:4em;
+ height: 100%;
+}
+}
 
   .info_wrapper{
     display: grid;

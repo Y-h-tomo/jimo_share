@@ -1,0 +1,40 @@
+<div class="container-fluid">
+<div class="posts_search">
+     <h4 class="p-3 mb-2 bg-primary text-white">検索結果一覧</h4>
+     <div class="row row-cols-2 justify-content-center" >
+      <% @posts.each do |post| %>
+      <div class="card col-auto">
+       <img src="<%= "/post_images/#{post.image}" %>" alt="投稿した画像" class="post_image">
+       <div class="card-body">
+               <% if @current_user.id == post.user_id %>
+                      <span class="badge badge-primary"><%= User.find(post.user_id).name %></span><br>
+                      <% else %>
+                      <span class="badge badge-light"><%= User.find(post.user_id).name %></span><br>
+                      <% end %>
+       <span class="badge badge-pill badge-info"><%= post.category %></span>
+        <p class="card-text"><%= post.content %></p>
+        <span class="badge badge-success">場所</span><p class="card-area"><%= post.area %></p>
+         <span class="badge badge-warning">期限: <%= l post.limit, format: :short  %></span><br>
+         <span class="badge badge-danger">¥</span><a class="text-danger"><%= post.price.to_i %></a>
+        <span class="badge badge-secondary">最終編集: <%= l  post.updated_at, format: :long %></span><br>
+        <%= link_to "/posts/#{post.id}" do %>
+          <button class="btn btn-outline-primary btn-sm">詳細へ</button>
+      <% end %>
+      </div>
+  </div>
+    <% end %>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>

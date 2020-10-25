@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.content = params[:content]
 
+    if @guest_user
+      @user.email = "guest@example.com"
+    end
+
     if params[:image_name]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image_name]
@@ -55,6 +59,7 @@ class UsersController < ApplicationController
     else
       render("users/edit")
     end
+
   end
 
   def login_form
@@ -75,7 +80,11 @@ class UsersController < ApplicationController
   end
 
   def logout
+    if  @guest_user
+      @guest_user.destroy
+    else
     session[:user_id] = nil
+    end
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end
@@ -91,6 +100,5 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
-
 
 end
