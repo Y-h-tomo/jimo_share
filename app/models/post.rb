@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :category, {presence: true}
   belongs_to :user
   has_many :comments, dependent: :destroy
-
+  default_scope -> { order(created_at: :desc) }
 
   # mount_uploader :image, ImageUploader
 
@@ -21,6 +21,14 @@ class Post < ApplicationRecord
   end
 
 
+end
+
+
+
+
+
+
+
     # def generate_image
     #   self.image = loop do
     #     random_token = SecureRandom.urlsafe_base64(nil, false) + ".jpg"
@@ -28,4 +36,3 @@ class Post < ApplicationRecord
     #   end
     # end
 
-end

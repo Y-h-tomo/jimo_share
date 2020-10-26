@@ -8,7 +8,9 @@
              <% if @user.id == @current_user.id %>
                 <p><%= @user.email %></p>
                 <small id="emailHelp" class="form-text text-muted">＊アドレスは他人からは確認されません</small>
-        <%= link_to("アカウント編集", "/users/#{@user.id}/edit") %>
+                        <%= link_to "/users/#{@user.id}/edit" do %>
+          <button class="btn btn-outline-success btn-sm">アカウント編集</button>
+           <% end %>
     <% end %>
     </div>
     <div class="user-posts">

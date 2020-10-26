@@ -2,7 +2,27 @@
 
   <%# 一覧ここから %>
   <div class="posts_new">
-     <h4 class="p-3 mb-2 bg-primary text-white">投稿一覧</h4>
+  <div class="posts-index-header bg-primary">
+     <h4 class="mb-2 p-3 text-white">投稿一覧</h4>
+  </div>
+    <form class="input-group index-search p-3 mb-2">
+   <%= form_tag("/posts/search") do %>
+  <div class="form-row ml-3">
+    <select class="form-control border col m-1" id="exampleFormControlSelect1" name="category">
+      <option>収穫物</option>
+      <option>一般食品</option>
+      <option>冷凍冷蔵食品</option>
+      <option>手作り</option>
+      <option>その他</option>
+    </select>
+    <input class="input-group-text col m-1" for="inputGroupSelect02" type="submit" value="分類別ソート検索">
+  </div>
+ <div class="form-row ml-3">
+  <input class="border col m-1" name="area"  type="text" placeholder="引き渡し場所" autocomplete="address-level2">
+     <input class="input-group-text col m-1" for="inputGroupSelect02" type="submit" value="場所で検索">
+  </div>
+<% end %>
+    </form>
      <div class="row row-cols-2 justify-content-center" >
       <% @posts.each do |post| %>
       <div class="card col-auto">
@@ -14,8 +34,9 @@
                       <span class="badge badge-light"><%= User.find(post.user_id).name %></span><br>
                       <% end %>
        <span class="badge badge-pill badge-info"><%= post.category %></span>
-        <p class="card-text"><%= post.content %></p>
-        <span class="badge badge-success">場所</span><p class="card-area"><%= post.area %></p>
+        <p class="card-text"><%= post.content %></p><br>
+        <span class="badge badge-success">場所</span>
+        <p class="card-area"><%= post.area %></p>
          <span class="badge badge-warning">期限: <%= l post.limit, format: :short  %></span><br>
          <span class="badge badge-danger">¥</span><a class="text-danger"><%= post.price.to_i %></a>
         <span class="badge badge-secondary">最終編集: <%= l  post.updated_at, format: :long %></span><br>

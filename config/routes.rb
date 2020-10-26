@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get "users/:id/edit" => "users#edit"
   post "users/create" => "users#create"
   get "signup" => "users#new"
+
+# ユーザー検索
+  get "users/search" => "users#search"
+
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
 
@@ -23,9 +27,9 @@ Rails.application.routes.draw do
   get "login" => "users#login_form"
   get "users/:id/likes" => "users#likes"
 
-  # 検索
+  # post検索
+  get "posts/search" => "posts#search"
 
-  get "search" => "posts#search"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"

@@ -4,9 +4,19 @@ class UsersController < ApplicationController
   # before_action :ensure_correct_user, {only: [:edit, :update]}
 
   def index
-    @users = User.all
+
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.all
+    end
 
   end
+
+   # 検索機能
+   def search
+    @posts = Post.search(params[:search])
+   end
 
   def show
     @user = User.find_by(id: params[:id])

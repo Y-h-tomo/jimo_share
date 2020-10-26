@@ -1,7 +1,14 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+
+    if params[:area].present? 
+      @posts = Post.where('area LIKE ?', "%#{params[:area]}%")
+    elsif params[:category].present?
+      @posts = Post.where('category LIKE ?', "%#{params[:category]}%")
+    else
+      @posts  = Post.all
+    end
 
   end
 
@@ -79,23 +86,16 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-# コメント機能
- def comments
-  @post = Post.find_by(id: params[:id])
-  @comment = Comment.where(post_id: @post.id)
- end
-
-# 検索機能
-
-def search
-  if params[:search].present?
-    @posts = Post.where('category LIKE ?', "%#{params[:search]}%")
-    redirect_to("/posts/search")
-  else
-    @post  = Post.none
+  # コメント機能
+  def comments
+    @post = Post.find_by(id: params[:id])
+    @comment = Comment.where(post_id: @post.id)
   end
 
-end
+   # 検索機能
+   def search
+    @posts = Post.search(params[:search])
+   end
 
   private
   #ストロングパラメーター

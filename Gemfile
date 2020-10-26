@@ -47,7 +47,7 @@ group :development do
 
 
   gem 'i18n_generators'
-  
+
   gem 'rubocop'
   gem 'rubocop-rails'
 
@@ -82,3 +82,10 @@ gem 'mini_magick'
 
 # パスワード用
 gem 'bcrypt',         '3.1.13'
+
+
+# 検索機能
+gem 'ransack'
+
+# ページネーション
+gem 'kaminari'

@@ -1,5 +1,15 @@
 <div class="container-fluid">
     <h4 class="p-3 mb-2 bg-success text-white">ユーザー　一覧</h4>
+
+        <form class="input-group index-search p-3 mb-2">
+   <%= form_tag("/users/search") do %>
+ <div class="form-row ml-3">
+      <input class="border col m-1 form-control" name="name" placeholder="ニックネーム">
+     <input class="input-group-text col m-1" for="inputGroupSelect02" type="submit" value="ニックネームで検索">
+  </div>
+<% end %>
+    </form>
+
   <div class="user-container border">
     <div class="user-index-area row row-cols-2 justify-content-center">
       <% @users.each do |user| %>
