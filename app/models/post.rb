@@ -1,11 +1,11 @@
 class Post < ApplicationRecord
-  validates :content, {presence: true, length: {maximum: 200}}
-  validates :user_id, {presence: true}
-  validates :image, {presence: true}
-  validates :price, {presence: true, numericality: true}
-  validates :area, {presence: true}
-  validates :limit, {presence: true}
-  validates :category, {presence: true}
+  validates :content, { presence: true, length: { maximum: 200 } }
+  validates :user_id, { presence: true }
+  validates :image, { presence: true }
+  validates :price, { presence: true, numericality: true }
+  validates :area, { presence: true }
+  validates :limit, { presence: true }
+  validates :category, { presence: true }
   belongs_to :user
   has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }

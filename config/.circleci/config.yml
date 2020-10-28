@@ -2,13 +2,16 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
+
 jobs:
   build:
     docker:
       # specify the version you desire here
-      # ruby2.5.1を使ったアプリのため
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.6.5-stretch-node
+       executor: ruby/default
         environment:
 #  ①注意！！ bundlerのバージョンが2.0.1以上だと、bundle installに失敗します。ここに環境として指定します。
           - BUNDLER_VERSION: 2.0.2
